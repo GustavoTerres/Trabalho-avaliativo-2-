@@ -1,69 +1,85 @@
+import { aleatorio, nome } from './aleatorio.js';
 import { perguntas } from './perguntas.js';
-import { nome } from './aleatorio.js';
 
-const caixaPerguntas = document.querySelector('.caixa-perguntas');
-const caixaAlternativas = document.querySelector('.caixa-alternativas');
-const caixaResultado = document.querySelector('.caixa-resultado');
-const textoResultado = document.querySelector('.texto-resultado');
-const novamenteBtn = document.querySelector('.novamente-btn');
-const iniciarBtn = document.querySelector('.iniciar-btn');
-const telaInicial = document.querySelector('.tela-inicial');
+const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
+const botaoJogarNovamente = document.querySelector(".novamente-btn");
+const botaoIniciar = document.querySelector(".iniciar-btn");
+const telaInicial = document.querySelector(".tela-inicial");
 
-let indicePerguntaAtual = 0;
+let atual = 0;
+let perguntaAtual;
 let historiaFinal = "";
 
-iniciarBtn.addEventListener('click', () => {
+botaoIniciar.addEventListener('click', iniciaJogo);
+
+function iniciaJogo() {
+    atual = 0;
+    historiaFinal = "";
     telaInicial.style.display = 'none';
-    indicePerguntaAtual = 0;
-    historiaFinal = "";
-    mostrarPergunta();
-    caixaPerguntas.style.display = 'block';
-    caixaAlternativas.style.display = 'block';
-    caixaResultado.classList.remove('mostrar');
-});
-
-novamenteBtn.addEventListener('click', () => {
-    indicePerguntaAtual = 0;
-    historiaFinal = "";
-    textoResultado.innerHTML = '';
-    caixaResultado.classList.remove('mostrar');
-    mostrarPergunta();
-    caixaPerguntas.style.display = 'block';
-    caixaAlternativas.style.display = 'block';
-});
-
-function mostrarPergunta() {
-    const pergunta = perguntas[indicePerguntaAtual];
-    caixaPerguntas.innerHTML = `<p>${pergunta.enunciado}</p>`;
-    caixaAlternativas.innerHTML = '';
-
-    pergunta.alternativas.forEach((alternativa, index) => {
-        const btn = document.createElement('button');
-        btn.innerText = alternativa.texto;
-        btn.addEventListener('click', () => selecionarAlternativa(index));
-        caixaAlternativas.appendChild(btn);
-    });
+    caixaPerguntas.classList.remove("mostrar");
+    caixaAlternativas.classList.remove("mostrar");
+    caixaResultado.classList.remove("mostrar");
+    mostraPergunta();
 }
 
-function selecionarAlternativa(indiceAlternativa) {
-    const pergunta = perguntas[indicePerguntaAtual];
-    const alternativa = pergunta.alternativas[indiceAlternativa];
+function mostraPergunta() {
+    if (atual >= perguntas.length) {
+        mostraResultado();
+        return;
+    }
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.innerHTML = ""; // Limpar conteúdo anterior
+    mostraAlternativas();
+}
 
-    alternativa.afirmacao.forEach(afirmacao => {
-        historiaFinal += `<p>${afirmacao}</p>`;
-    });
-
-    if (alternativa.proxima !== undefined) {
-        indicePerguntaAtual = alternativa.proxima;
-        mostrarPergunta();
-    } else {
-        mostrarResultado();
+function mostraAlternativas() {
+    for (const alternativa of perguntaAtual.alternativas) {
+        const botaoAlternativa = document.createElement("button");
+        botaoAlternativa.textContent = alternativa.texto;
+        botaoAlternativa.addEventListener("click", () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botaoAlternativa);
     }
 }
 
-function mostrarResultado() {
-    caixaPerguntas.style.display = 'none';
-    caixaAlternativas.style.display = 'none';
-    textoResultado.innerHTML = historiaFinal;
-    caixaResultado.classList.add('mostrar');
+function respostaSelecionada(opcaoSelecionada) {
+    const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
+    historiaFinal += afirmacoes + " ";
+    if (opcaoSelecionada.proxima !== undefined) {
+        atual = opcaoSelecionada.proxima;
+    } else {
+        mostraResultado();
+        return;
+    }
+    mostraPergunta();
 }
+
+function mostraResultado() {
+    caixaPerguntas.textContent = `Em um reino mágico, ${nome}`;
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.innerHTML = ""; // Limpar conteúdo das alternativas
+    caixaResultado.classList.add("mostrar");
+    botaoJogarNovamente.addEventListener("click", jogaNovamente);
+}
+
+function jogaNovamente() {
+    atual = 0;
+    historiaFinal = "";
+    caixaResultado.classList.remove("mostrar");
+    mostraPergunta();
+}
+
+function substituiNome() {
+    for (const pergunta of perguntas) {
+        pergunta.enunciado = pergunta.enunciado.replace(/você/g, nome);
+        for (const alternativa of pergunta.alternativas) {
+            alternativa.texto = alternativa.texto.replace(/você/g, nome);
+        }
+    }
+}
+
+substituiNome();
