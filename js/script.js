@@ -1,5 +1,5 @@
+import { aleatorio, nome } from './aleatorio.js';
 import { perguntas } from './perguntas.js';
-import { nome } from './aleatorio.js';
 
 const caixaPerguntas = document.querySelector('.caixa-perguntas');
 const caixaAlternativas = document.querySelector('.caixa-alternativas');
@@ -14,6 +14,8 @@ let indicePerguntaAtual = 0;
 iniciarBtn.addEventListener('click', () => {
     telaInicial.style.display = 'none';
     mostrarPergunta(indicePerguntaAtual);
+    caixaPerguntas.style.display = 'block';
+    caixaAlternativas.style.display = 'block';
 });
 
 novamenteBtn.addEventListener('click', () => {
@@ -21,6 +23,8 @@ novamenteBtn.addEventListener('click', () => {
     textoResultado.innerHTML = '';
     caixaResultado.classList.remove('mostrar');
     mostrarPergunta(indicePerguntaAtual);
+    caixaPerguntas.style.display = 'block';
+    caixaAlternativas.style.display = 'block';
 });
 
 function mostrarPergunta(indice) {
@@ -44,10 +48,12 @@ function selecionarAlternativa(indicePergunta, indiceAlternativa) {
         textoResultado.innerHTML += `<p>${afirmacao}</p>`;
     });
 
-    if (pergunta.proxima !== undefined) {
+    if (alternativa.proxima !== undefined) {
         indicePerguntaAtual = alternativa.proxima;
         mostrarPergunta(indicePerguntaAtual);
     } else {
         caixaResultado.classList.add('mostrar');
+        caixaPerguntas.style.display = 'none';
+        caixaAlternativas.style.display = 'none';
     }
 }
