@@ -1,101 +1,101 @@
 export const perguntas = [
     {
-        enunciado: "Assim que saiu da Academia de Magia, você se depara com um pergaminho mágico que responde todas as perguntas que uma pessoa pode ter e gera ilusões realistas. Qual o primeiro pensamento?",
+        enunciado: "Você acaba de descobrir um pergaminho mágico que pode responder a qualquer pergunta e criar ilusões realistas. Qual é a sua primeira reação?",
         alternativas: [
             {
-                texto: "Isso é assustador!",
+                texto: "Isso é encantador!",
                 afirmacao: [
-                    "No início, ficou com medo do que essa magia pode fazer.",
-                    "Achou assustador pensar na velocidade com que a magia está avançando."
+                    "Você fica maravilhado com o poder da magia.",
+                    "Se pergunta sobre todas as maravilhas que a magia pode criar."
                 ],
                 proxima: 1,
             },
             {
-                texto: "Isso é maravilhoso!",
+                texto: "Isso é preocupante!",
                 afirmacao: [
-                    "Quis saber como usar a magia no seu dia a dia.",
-                    "Pensou que a magia pode ajudar em tarefas da sua vida."
+                    "Fica apreensivo sobre os perigos que essa magia pode trazer.",
+                    "Se preocupa com o potencial abuso desse poder."
                 ],
                 proxima: 2,
             },
         ]
     },
     {
-        enunciado: "Utilizar uma magia poderosa pode ser aterrorizante, e foi pensando nisso que um professor da Academia decidiu fazer uma sequência de aulas sobre essa magia. No fim de uma aula, ele pede que você escreva um trabalho sobre o uso da magia na sociedade. Qual atitude você toma?",
+        enunciado: "Depois de uma aula sobre magia de encantamentos, o professor pede que você escreva um trabalho sobre a aplicação da magia em tarefas diárias. Como você procede?",
         alternativas: [
             {
-                texto: "Utiliza uma ferramenta mágica para buscar informações relevantes e explicações claras.",
+                texto: "Utilizo um livro antigo de feitiçaria para encontrar exemplos e escrever o trabalho.",
                 afirmacao: [
-                    "Conseguiu utilizar a magia para buscar informações úteis.",
-                    "Percebeu que a magia pode ajudar a encontrar informações de forma rápida e direcionada.",
-                    "Percebeu que a magia consegue explicar termos complicados de forma simplificada, o que ajudou muito nas suas pesquisas sobre assuntos complexos."
+                    "Descobre como os antigos usavam a magia para resolver problemas cotidianos.",
+                    "Aprecia o conhecimento profundo sobre magia que os antigos magos deixaram."
                 ],
                 proxima: 3,
             },
             {
-                texto: "Escreve o trabalho com base nas conversas que teve com colegas, algumas pesquisas em livros antigos e conhecimentos próprios sobre o tema.",
+                texto: "Escrevo o trabalho com base nas minhas observações e práticas de feitiçaria recentes.",
                 afirmacao: [
-                    "Sentiu mais facilidade em utilizar seus próprios recursos para escrever o trabalho.",
-                    "Achou que era mais fácil procurar respostas utilizando métodos mais tradicionais, mesmo que levasse mais tempo.",
-                    "Sentiu um pouco de medo de quais informações pessoais a magia poderia acessar, preferindo fazer suas tarefas com pouca interferência mágica."
+                    "Acha que suas experiências práticas são mais valiosas do que textos antigos.",
+                    "Prefere aplicar a magia de maneira inovadora e pessoal."
                 ],
                 proxima: 4,
             },
         ]
     },
     {
-        enunciado: "Uma ferramenta mágica pode ser uma boa alternativa para realizar tarefas do dia a dia, e foi pensando nisso que um professor da Academia decidiu fazer uma sequência de aulas sobre essa magia. No fim de uma aula, ele pede que você escreva um trabalho sobre o uso da magia na sociedade. Qual atitude você toma?",
+        enunciado: "Durante uma competição de feitiçaria, você precisa apresentar um encantamento novo. Qual é a sua abordagem?",
         alternativas: [
             {
-                texto: "Utiliza uma ferramenta mágica para buscar informações relevantes e explicações claras.",
+                texto: "Crio um encantamento baseado em um antigo grimório de feitiçaria.",
                 afirmacao: [
-                    "Conseguiu utilizar a magia para buscar informações úteis.",
-                    "Percebeu que a magia pode ajudar a encontrar informações de forma rápida e direcionada.",
-                    "Percebeu que a magia consegue explicar termos complicados de forma simplificada, o que ajudou muito nas suas pesquisas sobre assuntos complexos."
+                    "Fica fascinado pela sabedoria antiga e pelas tradições mágicas.",
+                    "Enriquece sua compreensão da magia ao revisitar feitiços clássicos."
                 ],
-                proxima: 3,
+                proxima: 5,
             },
             {
-                texto: "Escreve o trabalho com base nas conversas que teve com colegas, algumas pesquisas em livros antigos e conhecimentos próprios sobre o tema.",
+                texto: "Desenvolvo um encantamento original, combinando técnicas modernas e tradições antigas.",
                 afirmacao: [
-                    "Sentiu mais facilidade em utilizar seus próprios recursos para escrever o trabalho.",
-                    "Achou que era mais fácil procurar respostas utilizando métodos mais tradicionais, mesmo que levasse mais tempo.",
-                    "Sentiu um pouco de medo de quais informações pessoais a magia poderia acessar, preferindo fazer suas tarefas com pouca interferência mágica."
+                    "Sente-se empolgado por inovar e trazer novos conceitos para a magia.",
+                    "Acha que a combinação de métodos antigos e novos pode levar a resultados surpreendentes."
                 ],
-                proxima: 4,
+                proxima: 6,
             },
         ]
     },
     {
-        enunciado: "No fim da sua formação na Academia de Magia, um professor faz a seguinte pergunta: 'Qual foi a experiência mais marcante durante todo o aprendizado?'",
+        enunciado: "Depois de uma semana de intensivo sobre magia de transformação, o professor pergunta: 'Qual foi a parte mais reveladora do treinamento?'",
         alternativas: [
             {
-                texto: "A magia dos pergaminhos mágicos.",
+                texto: "A habilidade de transformar objetos comuns em itens mágicos.",
                 afirmacao: [
-                    "Sempre ficou fascinado com a capacidade de gerar ilusões realistas."
+                    "Ficou impressionado com a versatilidade da magia de transformação.",
+                    "Entendeu como magia pode mudar a funcionalidade dos itens cotidianos."
                 ],
             },
             {
-                texto: "A magia utilizada no dia a dia.",
+                texto: "A transformação de energias mágicas em feitiços poderosos.",
                 afirmacao: [
-                    "Ficou muito feliz em poder usar a magia para facilitar tarefas diárias."
+                    "Percebeu o potencial da magia em moldar e amplificar energias para criar efeitos impactantes.",
+                    "Aprendeu a importância de controlar a energia mágica para resultados eficazes."
                 ],
             },
         ]
     },
     {
-        enunciado: "No fim da sua formação na Academia de Magia, um professor faz a seguinte pergunta: 'Qual foi a experiência mais marcante durante todo o aprendizado?'",
+        enunciado: "Durante uma festa mágica, você é questionado sobre qual magia você usaria para criar um ambiente encantador. Qual é a sua resposta?",
         alternativas: [
             {
-                texto: "A magia dos pergaminhos mágicos.",
+                texto: "Criaria um encantamento para transformar o ambiente com luzes e sons mágicos.",
                 afirmacao: [
-                    "Sempre ficou fascinado com a capacidade de gerar ilusões realistas."
+                    "Acha que criar um ambiente mágico é crucial para uma festa memorável.",
+                    "Aprecia como a magia pode transformar espaços e experiências."
                 ],
             },
             {
-                texto: "A magia utilizada no dia a dia.",
+                texto: "Utilizaria magia para invocar criaturas mágicas que interagem com os convidados.",
                 afirmacao: [
-                    "Ficou muito feliz em poder usar a magia para facilitar tarefas diárias."
+                    "Gosta da ideia de incorporar seres mágicos para animar o evento.",
+                    "Acha que a presença de criaturas mágicas pode tornar a festa mais encantadora e única."
                 ],
             },
         ]
